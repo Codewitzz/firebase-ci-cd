@@ -1,41 +1,43 @@
-document.getElementById("signup-btn").addEventListener("click", function () {
+// ✅ Signup function
+function signup() {
     const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
 
     auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            console.log("User signed up:", userCredential.user);
-            alert("Signup successful!");
+            alert("Signup Successful!");
+            console.log("User:", userCredential.user);
         })
         .catch((error) => {
-            console.error("Signup error:", error.message);
             alert(error.message);
+            console.error("Signup Error:", error);
         });
-});
+}
 
-document.getElementById("login-btn").addEventListener("click", function () {
+// ✅ Login function
+function login() {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
 
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            console.log("User logged in:", userCredential.user);
-            alert("Login successful!");
+            alert("Login Successful!");
+            console.log("User:", userCredential.user);
         })
         .catch((error) => {
-            console.error("Login error:", error.message);
             alert(error.message);
+            console.error("Login Error:", error);
         });
-});
+}
 
-document.getElementById("logout-btn").addEventListener("click", function () {
+// ✅ Logout function
+function logout() {
     auth.signOut()
         .then(() => {
-            console.log("User logged out");
-            alert("Logout successful!");
+            alert("Logged Out!");
         })
         .catch((error) => {
-            console.error("Logout error:", error.message);
             alert(error.message);
+            console.error("Logout Error:", error);
         });
-});
+}
