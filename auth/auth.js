@@ -1,13 +1,9 @@
-// Import Firebase authentication methods
-import { auth } from "../firebaseConfig.js";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
 // Signup Function
 document.getElementById("signup-btn").addEventListener("click", function () {
     const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
+    auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             console.log("User signed up:", userCredential.user);
             alert("Signup successful!");
@@ -23,7 +19,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
 
-    signInWithEmailAndPassword(auth, email, password)
+    auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             console.log("User logged in:", userCredential.user);
             alert("Login successful!");
@@ -36,7 +32,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
 
 // Logout Function
 document.getElementById("logout-btn").addEventListener("click", function () {
-    signOut(auth)
+    auth.signOut()
         .then(() => {
             console.log("User logged out");
             alert("Logout successful!");
