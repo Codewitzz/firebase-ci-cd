@@ -1,3 +1,5 @@
+import { auth } from '../firebaseConfig.js';
+
 // ✅ Signup function
 function signup() {
     const email = document.getElementById("signup-email").value;
@@ -41,3 +43,5 @@ function logout() {
             console.error("Logout Error:", error);
         });
 }
+
+export { signup, login, logout };
