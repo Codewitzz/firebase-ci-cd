@@ -1,4 +1,3 @@
-// Signup Function
 document.getElementById("signup-btn").addEventListener("click", function () {
     const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
@@ -14,7 +13,6 @@ document.getElementById("signup-btn").addEventListener("click", function () {
         });
 });
 
-// Login Function
 document.getElementById("login-btn").addEventListener("click", function () {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
@@ -30,7 +28,6 @@ document.getElementById("login-btn").addEventListener("click", function () {
         });
 });
 
-// Logout Function
 document.getElementById("logout-btn").addEventListener("click", function () {
     auth.signOut()
         .then(() => {
