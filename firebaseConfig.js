@@ -1,16 +1,21 @@
-// Import Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+// Import Firebase modules
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAd23FnUa4LEMOIrl07QcsLW0QoQtCfaCI",
     authDomain: "fir-ci-cd-77421.firebaseapp.com",
     projectId: "fir-ci-cd-77421",
-    storageBucket: "fir-ci-cd-77421.appspot.com",
+    storageBucket: "fir-ci-cd-77421.firebasestorage.app",
     messagingSenderId: "968284501294",
     appId: "1:968284501294:web:c23a18a82621c49bf636bf",
     measurementId: "G-PD47FZ1E6E"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Export auth so auth.js can use it
+export { auth };

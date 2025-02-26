@@ -4,58 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase CI/CD</title>
+    <title>Firebase CI/CD Auth</title>
 </head>
 
 <body>
+
     <h1>Hello, Firebase CI/CD!</h1>
 
+    <!-- Signup Section -->
     <h2>Signup</h2>
-    <input type="email" id="signupEmail" placeholder="Enter Email">
-    <input type="password" id="signupPassword" placeholder="Enter Password">
-    <button onclick="signup()">Signup</button>
+    <input type="email" id="signup-email" placeholder="Email">
+    <input type="password" id="signup-password" placeholder="Password">
+    <button id="signup-btn">Signup</button>
 
+    <!-- Login Section -->
     <h2>Login</h2>
-    <input type="email" id="loginEmail" placeholder="Enter Email">
-    <input type="password" id="loginPassword" placeholder="Enter Password">
-    <button onclick="login()">Login</button>
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Password">
+    <button id="login-btn">Login</button>
+    <button id="logout-btn">Logout</button>
 
-    <button onclick="logout()">Logout</button>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
 
-    <script type="module">
-        import { signupUser, loginUser, logoutUser } from "./auth/auth.js";
+    <!-- Include Firebase Config and Auth Scripts -->
+    <script type="module" src="firebaseConfig.js"></script>
+    <script type="module" src="auth/auth.js"></script>
 
-        async function signup() {
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            try {
-                await signupUser(email, password);
-                alert("Signup Successful!");
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-
-        async function login() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            try {
-                await loginUser(email, password);
-                alert("Login Successful!");
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-
-        async function logout() {
-            try {
-                await logoutUser();
-                alert("Logged out successfully!");
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    </script>
 </body>
 
 </html>
